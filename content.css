@@ -1,0 +1,170 @@
+/* Clean Link for X - Content Styles */
+
+.clean-copy-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.clean-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  width: 34.75px;
+  height: 34.75px;
+  min-width: 34.75px;
+  min-height: 34.75px;
+  border-radius: 9999px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: rgb(113, 118, 123);
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, transform 0.1s ease;
+  vertical-align: middle;
+}
+
+/* Light mode tweak */
+[data-color-scheme="light"] .clean-copy-btn,
+body:not([style*="background-color: rgb(0, 0, 0)"]):not([style*="background-color: rgb(21, 32, 43)"]) .clean-copy-btn {
+  color: rgb(83, 100, 113);
+}
+
+/* Hover state */
+.clean-copy-btn:hover {
+  background-color: rgba(29, 155, 240, 0.1);
+  color: rgb(29, 155, 240);
+}
+
+.clean-copy-btn:active {
+  transform: scale(0.92);
+}
+
+.clean-copy-btn:focus-visible {
+  outline: 2px solid rgb(29, 155, 240);
+  outline-offset: 1px;
+}
+
+/* Icon container */
+.clean-copy-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18.75px;
+  height: 18.75px;
+  position: relative;
+}
+
+.clean-copy-icon {
+  width: 18.75px;
+  height: 18.75px;
+  fill: currentColor;
+  display: block;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.15s ease;
+}
+
+.clean-copy-icon.check {
+  display: none;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* Copied / Success State */
+.clean-copy-btn.copied {
+  color: rgb(0, 186, 124) !important;
+  background-color: rgba(0, 186, 124, 0.15) !important;
+}
+
+.clean-copy-btn.copied .clean-copy-icon.link {
+  display: none;
+}
+
+.clean-copy-btn.copied .clean-copy-icon.check {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+  animation: clean-copy-pop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes clean-copy-pop {
+  0% {
+    transform: scale(0.5) rotate(-10deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+/* Subtle Toast Notification */
+.clean-link-toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(40px) scale(0.95);
+  background: rgba(15, 20, 25, 0.94);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2147483647;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 90vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clean-link-toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.clean-link-toast-icon {
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+  fill: rgb(0, 186, 124);
+  display: inline-block;
+}
+
+.clean-link-toast-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.clean-link-toast-url {
+  color: rgb(29, 155, 240);
+  font-family: monospace;
+  font-size: 12px;
+  opacity: 0.9;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: middle;
+}

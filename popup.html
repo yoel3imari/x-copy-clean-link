@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clean Link for X</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-brand">
+        <img src="icons/icon32.png" alt="Logo" class="logo">
+        <div>
+          <h1 class="title">Clean Link</h1>
+          <span class="subtitle">for X (Twitter)</span>
+        </div>
+      </div>
+      <span class="version-badge">v1.0</span>
+    </header>
+
+    <!-- Main Settings -->
+    <main class="content">
+      <!-- Domain Selection -->
+      <div class="setting-group">
+        <label class="setting-label" for="domain-select">
+          <span>Target Domain</span>
+          <span class="tooltip-info" title="Domain used when generating the clean link">ⓘ</span>
+        </label>
+        <select id="domain-select" class="select-input">
+          <option value="x.com">x.com (Standard)</option>
+          <option value="twitter.com">twitter.com (Classic)</option>
+          <option value="fixupx.com">fixupx.com (Best embeds)</option>
+          <option value="fxtwitter.com">fxtwitter.com (FxTwitter)</option>
+          <option value="vxtwitter.com">vxtwitter.com (VxTwitter)</option>
+        </select>
+      </div>
+
+      <!-- Format Selection -->
+      <div class="setting-group">
+        <label class="setting-label">Copy Format</label>
+        <div class="pill-group" id="format-group">
+          <button type="button" class="pill active" data-value="url">Plain URL</button>
+          <button type="button" class="pill" data-value="markdown">Markdown</button>
+        </div>
+      </div>
+
+      <!-- Shift+Click Shortcut Target -->
+      <div class="setting-group">
+        <label class="setting-label" for="shift-domain-select">
+          <span>Shift + Click Domain</span>
+          <span class="tooltip-info" title="Alternative domain copied when holding Shift">ⓘ</span>
+        </label>
+        <select id="shift-domain-select" class="select-input">
+          <option value="fixupx.com">fixupx.com (Discord / Telegram)</option>
+          <option value="fxtwitter.com">fxtwitter.com</option>
+          <option value="vxtwitter.com">vxtwitter.com</option>
+          <option value="twitter.com">twitter.com</option>
+          <option value="x.com">x.com</option>
+        </select>
+      </div>
+
+      <!-- Toggles -->
+      <div class="toggle-group">
+        <label class="toggle-item">
+          <span class="toggle-text">
+            <strong>Show Toast Confirmation</strong>
+            <small>Floating badge confirming link copied</small>
+          </span>
+          <input type="checkbox" id="show-toast-toggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <!-- Live Preview -->
+      <div class="preview-box">
+        <div class="preview-header">
+          <span>Clean Output Preview</span>
+          <span class="status-indicator active" title="Active on X">● Active</span>
+        </div>
+        <div class="preview-output" id="preview-output">https://x.com/username/status/1234567890</div>
+        <div class="preview-note">Strips all <code>?s=</code>, <code>&t=</code>, <code>ref_src</code> tracking tags</div>
+      </div>
+
+      <!-- Shortcuts Cheatsheet -->
+      <div class="shortcuts-card">
+        <div class="shortcut-row">
+          <span class="key-badge">Click</span>
+          <span class="shortcut-desc">Copy clean link</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key-badge">Shift + Click</span>
+          <span class="shortcut-desc">Copy embed-friendly link</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key-badge">Alt + Click</span>
+          <span class="shortcut-desc">Copy Markdown link</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>1-click clean links for X</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
